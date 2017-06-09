@@ -1,3 +1,5 @@
 #For IDEA
 *.xml
 *.iml
+*.class
+*.jar
