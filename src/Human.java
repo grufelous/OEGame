@@ -3,8 +3,8 @@ import static java.lang.System.out;
 
 public class Human {
     public boolean isBot = false;
-    String name;
-    Scanner s = new Scanner(System.in);
+    private String name;
+    private Scanner s = new Scanner(System.in);
     public Human(String name) {
         this.name = name;
     }
