@@ -12,4 +12,16 @@ public abstract class Plop {
         }
         return isThere;
     }
+
+    public static boolean rangeCheck(int i, int min, int max) {
+        /**
+         * @JAVADOC
+         * Inclusive range check method
+         * */
+        boolean inRange = false;
+        if((min <= i) && (i <= max)) {
+            inRange = true;
+        }
+        return inRange;
+    }
 }
