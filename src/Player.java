@@ -1,4 +1,6 @@
 public interface Player {
-    public int getScore();
+    public boolean isBot = false;
+    public int getInput();
+
 
 }

@@ -2,6 +2,7 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 public class Human {
+    public boolean isBot = false;
     String name;
     Scanner s = new Scanner(System.in);
     public Human(String name) {
@@ -19,4 +20,6 @@ public class Human {
         }
         return input;
     }
+
+
 }
