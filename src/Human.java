@@ -1,13 +1,11 @@
 import java.util.Scanner;
-
-import static java.lang.System.in;
 import static java.lang.System.out;
 
 public class Human {
     public boolean isBot = false;
     private int[] frequency = {0,0,0,0,0,0,0,0,0,0};
     private int[] recency = {1,1,1,1,1,1,1,1,1,1};
-    private int lastInput;
+    private int lastInput = 0;
     private String name;
     private Scanner s = new Scanner(System.in);
     private int score = 0;
@@ -25,12 +23,12 @@ public class Human {
             out.printf("Try again, %d is not within the range of 1-10, inclusive!\n", input);
             input = getInput();
         }
-        incrementScore(input, isBatting);
+        updateUserData(input, isBatting);
         lastInput = input;
         return input;
     }
 
-    private void incrementScore(int userInput, boolean isBatting) {
+    private void updateUserData(int userInput, boolean isBatting) {
         if(isBatting) {
             score += userInput;
         }
