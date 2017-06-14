@@ -3,6 +3,8 @@ import static java.lang.System.out;
 
 public class Human {
     public boolean isBot = false;
+    private int[] history = {0,0,0,0,0,0,0,0,0,0};
+    private int[] recency = {1,1,1,1,1,1,1,1,1,1};
     private String name;
     private Scanner s = new Scanner(System.in);
     public Human(String name) {
