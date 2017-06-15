@@ -1,6 +1,6 @@
 import static java.lang.System.out;
 
-public class Bot {
+public class Bot implements Player {
     public boolean isBot = true;
     private int[] frequency = {0,0,0,0,0,0,0,0,0,0};
     private int[] recency = {1,1,1,1,1,1,1,1,1,1};
@@ -17,6 +17,13 @@ public class Bot {
         updateUserData(input, isBatting);
         lastInput = input;
         return input;
+    }
+
+    public int[] getFrequency() {
+        return frequency;
+    }
+    public int[] getRecency() {
+        return recency;
     }
 
     private void updateUserData(int userInput, boolean isBatting) {

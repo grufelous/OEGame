@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import static java.lang.System.out;
 
-public class Human {
+public class Human implements Player {
     public boolean isBot = false;
     private int[] frequency = {0,0,0,0,0,0,0,0,0,0};
     private int[] recency = {1,1,1,1,1,1,1,1,1,1};
@@ -28,13 +28,20 @@ public class Human {
         return input;
     }
 
+    public int[] getFrequency() {
+        return frequency;
+    }
+    public int[] getRecency() {
+        return recency;
+    }
+
     private void updateUserData(int userInput, boolean isBatting) {
         if(isBatting) {
             score += userInput;
         }
         frequency[userInput-1] += 1;
         if(lastInput == userInput) {
-            //Increase the recency of user input, decrement of all - a method needed!
+            
         }
     }
 

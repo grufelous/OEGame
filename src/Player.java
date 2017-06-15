@@ -14,6 +14,8 @@ public interface Player {
     public boolean isBot = false;
     public int getInput();
     public boolean isBatting = false;
+    public int[] getFrequency();
+    public int[] getRecency();
 
 
 }
