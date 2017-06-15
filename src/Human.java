@@ -5,6 +5,7 @@ public class Human implements Player {
     public boolean isBot = false;
     private int[] frequency = {0,0,0,0,0,0,0,0,0,0};
     private int[] recency = {1,1,1,1,1,1,1,1,1,1};
+    private int[] currentStreak = {0,0};        //first element is the number, second is its longest streak
     private int lastInput = 0;
     private String name;
     private Scanner s = new Scanner(System.in);
@@ -41,9 +42,26 @@ public class Human implements Player {
         }
         frequency[userInput-1] += 1;
         if(lastInput == userInput) {
-            
+            currentStreak[0] = userInput;
+            currentStreak[1]++;
+        } else {
+            currentStreak[0] = userInput;
+            currentStreak[1] = 1;
+        }
+        for(int i = 0; i < userInput-1; i++) {
+            if(recency[i] > 1) {
+                recency[i]--;
+            } else {
+                recency[i] = 1;
+            }
+        }
+        recency[userInput-1] += currentStreak[1];
+        for(int i = userInput; i < 10; i++) {
+            if(recency[i] > 1) {
+                recency[i]--;
+            } else {
+                recency[i] = 1;
+            }
         }
     }
-
-
 }
