@@ -3,8 +3,8 @@ import static java.lang.System.out;
 public abstract class Plop {
     /**
      * @JAVADOC
-     * checks for the first argument in the second, which is an array
-     * not case sensitive
+     * Checks for the first argument in the second, which is an array.
+     * Not case sensitive
      * @param   toFind The string to look for
      * @param   whereToFind The string array where toFind is looked in
      * @return  true if the string is present in the array

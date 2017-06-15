@@ -15,6 +15,11 @@ public class Human implements Player {
         this.name = name;
     }
 
+    /**
+     * @JAVADOC
+     * Takes in user inputs and performs necessary checks on it.
+     * @return Accepted user inputs are returned.
+     * */
     public int getInput() {
         out.printf("Input:\t");
         int input = s.nextInt();
@@ -36,6 +41,12 @@ public class Human implements Player {
         return recency;
     }
 
+    /**
+     * @JAVADOC
+     * Updates the Player's fields and increments score if they are batting
+     * @param isBatting If it is true, then the player's score will be incremented
+     * @param userInput The user's input is used to update data arrays and find streaks
+     * */
     private void updateUserData(int userInput, boolean isBatting) {
         if(isBatting) {
             score += userInput;
