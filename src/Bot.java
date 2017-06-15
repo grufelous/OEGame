@@ -4,9 +4,14 @@ public class Bot implements Player {
     public boolean isBot = true;
     private int[] frequency = {0,0,0,0,0,0,0,0,0,0};
     private int[] recency = {1,1,1,1,1,1,1,1,1,1};
+    private int[] enemyFrequency = {0,0,0,0,0,0,0,0,0,0};
+    private int[] enemyRecency = {1,1,1,1,1,1,1,1,1,1};
+    private int[] emenyLikelihood = {0,0,0,0,0,0,0,0,0,0};
+    private int[] currentStreak = {0,0};        //first element is the number, second is its longest streak
     public boolean isBatting = false;
     private int score = 0;
     private int lastInput = 0;
+
     public Bot() {
         out.printf("Initialized a bot\n");
     }
@@ -14,9 +19,23 @@ public class Bot implements Player {
     public int getInput() {
         int input = 0;              //if input is 0, it means that it has not been computed yet
         input = (int) (1 + Math.random() * 10);
+        int highestLikelihood = 0, index = -1;
+        for(int i = 0; i < 10; i++) {
+            emenyLikelihood[i] = enemyFrequency[i]*enemyRecency[i];//other player's recency and frequency to be taken here
+            if(emenyLikelihood[i] > highestLikelihood) {
+                highestLikelihood = emenyLikelihood[i];
+                index = i;
+            }
+        }
+        input = index+1;
         updateUserData(input, isBatting);
         lastInput = input;
         return input;
+    }
+
+    public void updateEnemyData(Player e) {
+        enemyFrequency = e.getFrequency();
+        enemyRecency = e.getRecency();
     }
 
     public int[] getFrequency() {
@@ -32,7 +51,26 @@ public class Bot implements Player {
         }
         frequency[userInput-1] += 1;
         if(lastInput == userInput) {
-            //Increase the recency of user input, decrement of all - a method needed!
+            currentStreak[0] = userInput;
+            currentStreak[1]++;
+        } else {
+            currentStreak[0] = userInput;
+            currentStreak[1] = 1;
+        }
+        for(int i = 0; i < userInput-1; i++) {
+            if(recency[i] > 1) {
+                recency[i]--;
+            } else {
+                recency[i] = 1;
+            }
+        }
+        recency[userInput-1] += currentStreak[1];
+        for(int i = userInput; i < 10; i++) {
+            if(recency[i] > 1) {
+                recency[i]--;
+            } else {
+                recency[i] = 1;
+            }
         }
     }
 }
