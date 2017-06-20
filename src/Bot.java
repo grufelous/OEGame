@@ -57,25 +57,31 @@ public class Bot implements Player {
         frequency[userInput-1] += 1;
         if(lastInput == userInput) {
             currentStreak[0] = userInput;
+            if((currentStreak[1] == 2) || ((currentStreak[1] == 4))) {      //third and fifth time lucky
+                currentStreak[1] *= 2;
+            } else if ((currentStreak[1] == 3) || (currentStreak[1] == 5)) {
+                currentStreak[1] /= 2;
+            }
             currentStreak[1]++;
+
         } else {
             currentStreak[0] = userInput;
             currentStreak[1] = 1;
         }
         for(int i = 0; i < userInput-1; i++) {
-            if(recency[i] > 1) {
-                recency[i]--;
-            } else {
-                recency[i] = 1;
-            }
+            recencyCycle(recency[i]);
         }
         recency[userInput-1] += currentStreak[1];
         for(int i = userInput; i < 10; i++) {
-            if(recency[i] > 1) {
-                recency[i]--;
-            } else {
-                recency[i] = 1;
-            }
+            recencyCycle(recency[i]);
+        }
+    }
+
+    private void recencyCycle(int rec) {
+        if(rec > 1) {
+            rec--;
+        } else {
+            rec = 1;
         }
     }
 }
