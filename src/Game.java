@@ -34,12 +34,12 @@ public class Game {
             int sum;
             boolean canChose = false;
             if(Plop.containsStr(tossChoice, evenWords)) {
-                sum = bot.getInput() + human.getInput();
+                sum = bot.getUnbiasedInput() + human.getUnbiasedInput();
                 if(sum%2 == 0) {
                     canChose = true;
                 }
             } else if(Plop.containsStr(tossChoice, oddWords)) {
-                sum = bot.getInput() + human.getInput();
+                sum = bot.getUnbiasedInput() + human.getUnbiasedInput();
                 if(sum%2 != 0) {
                     canChose = true;
                 }
@@ -48,10 +48,11 @@ public class Game {
                 tosser();
             }
             if(canChose) {
-                out.printf("Do you want to bat (1) or ball (2)?");
+                out.printf("You won the toss. Do you want to bat (1) or ball (2)?");
+                int winnerChoice = s.nextInt();
+                //TODO this
 
             }
         } while (repeat);
     }
-
 }

@@ -41,6 +41,10 @@ public class Human implements Player {
         return recency;
     }
 
+    public int getUnbiasedInput() {
+        return getInput();
+    }
+
     /**
      * @JAVADOC
      * Updates the Player's fields and increments score if they are batting

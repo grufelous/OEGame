@@ -16,6 +16,6 @@ public interface Player {
     public boolean isBatting = false;
     public int[] getFrequency();
     public int[] getRecency();
-
+    public int getUnbiasedInput();
 
 }

@@ -28,7 +28,7 @@ public class Bot implements Player {
             }
         }
         if(highestLikelihood == 0) {
-            input = (int) (1 + Math.random() * 10);
+            input = getUnbiasedInput();
         } else {
             input = index+1;
         }
@@ -48,6 +48,9 @@ public class Bot implements Player {
     }
     public int[] getRecency() {
         return recency;
+    }
+    public int getUnbiasedInput() {
+        return (int) (1 + Math.random()*10);
     }
 
     private void updateUserData(int userInput, boolean isBatting) {
