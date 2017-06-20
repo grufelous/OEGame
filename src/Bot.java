@@ -6,7 +6,7 @@ public class Bot implements Player {
     private int[] recency = {1,1,1,1,1,1,1,1,1,1};
     private int[] enemyFrequency = {0,0,0,0,0,0,0,0,0,0};
     private int[] enemyRecency = {1,1,1,1,1,1,1,1,1,1};
-    private int[] emenyLikelihood = {0,0,0,0,0,0,0,0,0,0};
+    private int[] enemyLikelihood = {0,0,0,0,0,0,0,0,0,0};
     private int[] currentStreak = {0,0};        //first element is the number, second is its longest streak
     public boolean isBatting = false;
     private int score = 0;
@@ -18,14 +18,19 @@ public class Bot implements Player {
 
     public int getInput() {
         int input = 0;              //if input is 0, it means that it has not been computed yet
-        input = (int) (1 + Math.random() * 10);
-        int highestLikelihood = 0, index = -1;
+        int highestLikelihood = 0, index = -1; //taking highestLikelihood as 0 as in all likelihood, some value will be non zero after the first run
+        //finds the greatest enemy likelihood
         for(int i = 0; i < 10; i++) {
-            emenyLikelihood[i] = enemyFrequency[i]*enemyRecency[i];//other player's recency and frequency to be taken here
-            if(emenyLikelihood[i] > highestLikelihood) {
-                highestLikelihood = emenyLikelihood[i];
+            enemyLikelihood[i] = enemyFrequency[i]*enemyRecency[i];
+            if(enemyLikelihood[i] > highestLikelihood) {
+                highestLikelihood = enemyLikelihood[i];
                 index = i;
             }
+        }
+        if(highestLikelihood == 0) {
+            input = (int) (1 + Math.random() * 10);
+        } else {
+            input = index+1;
         }
         input = index+1;
         updateUserData(input, isBatting);
