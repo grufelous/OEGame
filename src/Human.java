@@ -14,7 +14,7 @@ public class Human implements Player {
     public Human(String name) {
         this.name = name;
     }
-
+    public ScoreData selfScore = new ScoreData();
     /**
      * @JAVADOC
      * Takes in user inputs and performs necessary checks on it.
