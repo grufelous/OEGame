@@ -1,3 +1,4 @@
+import static java.lang.System.in;
 import static java.lang.System.out;
 
 public class Bot implements Player {
@@ -13,16 +14,18 @@ public class Bot implements Player {
     //private int lastInput = 0;
 
     public ScoreData selfScore = new ScoreData();
-    public ScoreData enemyScore = new ScoreData();
+    public ScoreData enemyScore;
+
 
     public Bot() {
         out.printf("Initialized a bot\n");
     }
 
     public int getInput() {
-        int input = 0;              //if input is 0, it means that it has not been computed yet
-        int highestLikelihood = 0, index = -1; //taking highestLikelihood as 0 as in all likelihood, some value will be non zero after the first run
+        int input = enemyScore.mostProbable();
+        /*int highestLikelihood = 0, index = -1; //taking highestLikelihood as 0 as in all likelihood, some value will be non zero after the first run
         //finds the greatest enemy likelihood
+
         for(int i = 0; i < 10; i++) {
             enemyLikelihood[i] = enemyFrequency[i]*enemyRecency[i];
             if(enemyLikelihood[i] > highestLikelihood) {
@@ -37,22 +40,26 @@ public class Bot implements Player {
         }
         input = index+1;
         updateUserData(input, isBatting);
-        lastInput = input;
+        lastInput = input;*/
         return input;
     }
-
-    public void updateEnemyData(Player e) {
-        enemyFrequency = e.getFrequency();
-        enemyRecency = e.getRecency();
-        this.enemyScore = e.selfScore;
+    public void updateEnemyData(Player e) { //must be called every time before getInput
+        this.enemyScore = e.getScoreData();
+        //enemyFrequency = e.getFrequency();
+        //enemyRecency = e.getRecency();
+        //this.enemyScore = e.selfScore;
     }
 
-    public int[] getFrequency() {
+    public ScoreData getScoreData() {
+        return selfScore;
+    }
+
+    /*public int[] getFrequency() {
         return frequency;
-    }
-    public int[] getRecency() {
+    }*/
+    /*public int[] getRecency() {
         return recency;
-    }
+    }*/
     public int getUnbiasedInput() {
         return (int) (1 + Math.random()*10);
     }
@@ -61,7 +68,9 @@ public class Bot implements Player {
         if(isBatting) {
             score += userInput;
         }
-        frequency[userInput-1] += 1;
+
+
+        /*frequency[userInput-1] += 1;
         if(lastInput == userInput) {
             currentStreak[0] = userInput;
             if((currentStreak[1] == 2) || ((currentStreak[1] == 4))) {      //third and fifth time lucky
@@ -81,7 +90,7 @@ public class Bot implements Player {
         recency[userInput-1] += currentStreak[1];
         for(int i = userInput; i < 10; i++) {
             recencyCycle(recency[i]);
-        }
+        }*/
     }
 
     private void recencyCycle(int rec) {

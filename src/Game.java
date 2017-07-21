@@ -10,7 +10,7 @@ public class Game {
         if(player1.isBot) {
             bot = player1;
             human = player2;
-        } else {
+        } else if(player2.isBot){
             bot = player2;
             human = player1;
         }
