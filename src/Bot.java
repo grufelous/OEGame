@@ -13,6 +13,13 @@ public class Bot implements Player {
     private int score = 0;
     //private int lastInput = 0;
 
+    public void makeBatter() {
+        isBatting = true;
+    }
+    public void makeBaller() {
+        isBatting = false;
+    }
+
     public ScoreData selfScore = new ScoreData();
     public ScoreData enemyScore;
 

@@ -15,6 +15,12 @@ public class Human implements Player {
         this.name = name;
     }
     public ScoreData selfScore = new ScoreData();
+    public void makeBatter() {
+        isBatting = true;
+    }
+    public void makeBaller() {
+        isBatting = false;
+    }
     /**
      * @JAVADOC
      * Takes in user inputs and performs necessary checks on it.

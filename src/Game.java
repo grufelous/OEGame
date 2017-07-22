@@ -50,9 +50,22 @@ public class Game {
             if(canChose) {
                 out.printf("You won the toss. Do you want to bat (1) or ball (2)?");
                 int winnerChoice = s.nextInt();
-                //TODO this
+                if(winnerChoice == 1) {
+                    setRoles(human, bot);
+
+                } else if (winnerChoice == 2) {
+                    setRoles(bot, human);
+                }
 
             }
         } while (repeat);
+    }
+
+    private void play(Player batter, Player baller) {
+
+    }
+    private void setRoles(Player batter, Player baller) {
+        baller.makeBaller();
+        batter.makeBatter();
     }
 }

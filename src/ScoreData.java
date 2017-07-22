@@ -51,9 +51,9 @@ public class ScoreData {
         if(number == lastInput) {
             currentStreak++;
             if((currentStreak == 2) || (currentStreak == 4)) {
-                multiplier = 2;
+                multiplier = 3;
             } else {
-                multiplier = 1;
+                multiplier = 2;
             }
         } else {
             lastInput = number;
