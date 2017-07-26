@@ -62,7 +62,7 @@ public class Game {
         } while (repeat);
     }
 
-    public void play(Player batter, Player baller) {
+    public /*private*/void play(Player batter, Player baller) {
         boolean out = false;
         int batterScore = 0, ballerScore = 0;
         int batterNum, ballerNum;
