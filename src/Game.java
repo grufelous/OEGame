@@ -52,9 +52,10 @@ public class Game {
                 int winnerChoice = s.nextInt();
                 if(winnerChoice == 1) {
                     setRoles(human, bot);
-
+                    play(human, bot);
                 } else if (winnerChoice == 2) {
                     setRoles(bot, human);
+                    play(bot, human);
                 }
 
             }
@@ -62,7 +63,18 @@ public class Game {
     }
 
     private void play(Player batter, Player baller) {
+        boolean out = false;
+        int batterScore, ballerScore;
+        int batterNum, ballerNum;
+        while(!out) {
+            batterNum = batter.getInput();
+            ballerNum = baller.getInput();
+            if(ballerNum == batterNum) {
+                out = true;
+            } else {
 
+            }
+        }
     }
     private void setRoles(Player batter, Player baller) {
         baller.makeBaller();
