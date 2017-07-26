@@ -62,9 +62,9 @@ public class Game {
         } while (repeat);
     }
 
-    private void play(Player batter, Player baller) {
+    public void play(Player batter, Player baller) {
         boolean out = false;
-        int batterScore, ballerScore;
+        int batterScore = 0, ballerScore = 0;
         int batterNum, ballerNum;
         while(!out) {
             batterNum = batter.getInput();
@@ -72,7 +72,17 @@ public class Game {
             if(ballerNum == batterNum) {
                 out = true;
             } else {
-
+                batterScore += batterNum;
+            }
+        }
+        out = false;
+        while(!out) {
+            ballerNum = baller.getInput();
+            batterNum = batter.getInput();
+            if(ballerNum == batterNum) {
+                out = true;
+            } else {
+                ballerScore += ballerNum;
             }
         }
     }
