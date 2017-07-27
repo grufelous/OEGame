@@ -31,7 +31,7 @@ public class Game {
         do {
             out.printf("\tTossing...\nOdd or even? (o/e)");
             String tossChoice = s.nextLine();
-            int sum;
+            int sum = 0;
             boolean canChose = false;
             if(Plop.containsStr(tossChoice, evenWords)) {
                 sum = bot.getUnbiasedInput() + human.getUnbiasedInput();
@@ -69,20 +69,27 @@ public class Game {
         while(!out) {
             batterNum = batter.getInput();
             ballerNum = baller.getInput();
+            System.out.printf("Batter: %d\tBaller: %d\n", ballerNum, ballerNum);
             if(ballerNum == batterNum) {
                 out = true;
+                System.out.printf("Out with a score of %d\n", batterScore);
             } else {
                 batterScore += batterNum;
+                System.out.printf("Score of %d\n", batterScore);
             }
         }
+        System.out.printf("\n\n");
         out = false;
         while(!out) {
             ballerNum = baller.getInput();
             batterNum = batter.getInput();
+            System.out.printf("Batter: %d\tBaller: %d\n", ballerNum, ballerNum);
             if(ballerNum == batterNum) {
                 out = true;
+                System.out.printf("Out with a score of %d\n", ballerScore);
             } else {
                 ballerScore += ballerNum;
+                System.out.printf("Score of %d\n", ballerScore);
             }
         }
     }
