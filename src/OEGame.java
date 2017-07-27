@@ -11,7 +11,11 @@ public class OEGame {
         h.getScoreData().viewData();
         Game g = new Game(h, b);*/
 
-        //h.getInput();
-        System.out.println(b.getUnbiasedInput());
+        h.getInput();
+
+        for(int i = 0; i < 20; i++) {
+            System.out.println(b.getUnbiasedInput());
+        }
+        b.getScoreData().viewData();
     }
 }
