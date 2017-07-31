@@ -4,7 +4,7 @@ public interface Player {
     public void makeBatter();
     public void makeBaller();
     public String getName();
-    public boolean isBot = false;
+    public boolean isBot();
     public int getInput();
     public boolean isBatting = false;
     //public int[] getFrequency();

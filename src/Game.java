@@ -7,16 +7,15 @@ public class Game {
     private boolean humanOut, botOut;
     private Scanner s = new Scanner(System.in);
     public Game(Player player1, Player player2) {
-        if(player1.isBot) {
+        if(player1.isBot()) {
             bot = player1;
             human = player2;
             out.printf("Player 2 (%s) is not a bot", player2.getName());
-        } else if(player2.isBot){
+        } else if(player2.isBot()){
             bot = player2;
             human = player1;
             out.printf("Player 1 (%s) is not a bot", player1.getName());
         }
-        out.printf("The names are %s and %s", player1.getName(), player2.getName());
         //tosser();
     }
 

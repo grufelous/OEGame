@@ -1,8 +1,7 @@
-import static java.lang.System.in;
 import static java.lang.System.out;
 
 public class Bot implements Player {
-    public boolean isBot = true;
+    public boolean botStatus = true;
 
     /*private int[] frequency = {0,0,0,0,0,0,0,0,0,0};
     private int[] recency = {1,1,1,1,1,1,1,1,1,1};
@@ -23,6 +22,9 @@ public class Bot implements Player {
     public String getName(){
         return "Bot";
     }
+    public boolean isBot() {
+        return botStatus;
+    }
 
     public ScoreData selfScore = new ScoreData();
     public ScoreData enemyScore;
@@ -30,7 +32,7 @@ public class Bot implements Player {
 
     public Bot() {
         out.printf("Initialized a bot\n");
-        this.isBot = true;
+        this.botStatus = true;
     }
 
     public int getInput() {

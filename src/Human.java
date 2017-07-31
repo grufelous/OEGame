@@ -2,7 +2,7 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 public class Human implements Player {
-    public boolean isBot = false;
+    public boolean botStatus = false;
     /*private int[] frequency = {0,0,0,0,0,0,0,0,0,0};
     private int[] recency = {1,1,1,1,1,1,1,1,1,1};
     private int[] currentStreak = {0,0};        //first element is the number, second is its longest streak*/
@@ -13,6 +13,9 @@ public class Human implements Player {
     public boolean isBatting = false;
     public Human(String name) {
         this.name = name;
+    }
+    public boolean isBot() {
+        return botStatus;
     }
     public ScoreData selfScore = new ScoreData();
     public void makeBatter() {
