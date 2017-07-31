@@ -21,6 +21,9 @@ public class Human implements Player {
     public void makeBaller() {
         isBatting = false;
     }
+    public String getName(){
+        return this.name;
+    }
     /**
      * @JAVADOC
      * Takes in user inputs and performs necessary checks on it.

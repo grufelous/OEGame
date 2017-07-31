@@ -10,11 +10,14 @@ public class Game {
         if(player1.isBot) {
             bot = player1;
             human = player2;
+            out.printf("Player 2 (%s) is not a bot", player2.getName());
         } else if(player2.isBot){
             bot = player2;
             human = player1;
+            out.printf("Player 1 (%s) is not a bot", player1.getName());
         }
-        tosser();
+        out.printf("The names are %s and %s", player1.getName(), player2.getName());
+        //tosser();
     }
 
     /**
@@ -47,7 +50,7 @@ public class Game {
                 out.printf("Either enter even or odd!\n");
                 tosser();
             }
-            if(canChose) {
+            /*if(canChose) {
                 out.printf("You won the toss. Do you want to bat (1) or ball (2)?");
                 int winnerChoice = s.nextInt();
                 if(winnerChoice == 1) {
@@ -58,7 +61,7 @@ public class Game {
                     play(bot, human);
                 }
 
-            }
+            }*/
         } while (repeat);
     }
 

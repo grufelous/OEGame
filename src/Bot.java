@@ -3,6 +3,7 @@ import static java.lang.System.out;
 
 public class Bot implements Player {
     public boolean isBot = true;
+
     /*private int[] frequency = {0,0,0,0,0,0,0,0,0,0};
     private int[] recency = {1,1,1,1,1,1,1,1,1,1};
     private int[] enemyFrequency = {0,0,0,0,0,0,0,0,0,0};
@@ -19,6 +20,9 @@ public class Bot implements Player {
     public void makeBaller() {
         isBatting = false;
     }
+    public String getName(){
+        return "Bot";
+    }
 
     public ScoreData selfScore = new ScoreData();
     public ScoreData enemyScore;
@@ -26,6 +30,7 @@ public class Bot implements Player {
 
     public Bot() {
         out.printf("Initialized a bot\n");
+        this.isBot = true;
     }
 
     public int getInput() {

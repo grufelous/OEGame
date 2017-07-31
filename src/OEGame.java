@@ -8,14 +8,14 @@ public class OEGame {
         /*for(int i = 0; i < 20; i++) {
             h.getInput();
         }
-        h.getScoreData().viewData();
-        Game g = new Game(h, b);*/
+        h.getScoreData().viewData();*/
+        Game g = new Game(h, b);
 
-        h.getInput();
+        //h.getInput();
 
-        for(int i = 0; i < 20; i++) {
+        /*for(int i = 0; i < 20; i++) {
             System.out.println(b.getUnbiasedInput());
-        }
-        b.getScoreData().viewData();
+        }*/
+        //b.getScoreData().viewData();
     }
 }
