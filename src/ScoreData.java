@@ -81,7 +81,7 @@ public class ScoreData {
                 bigg = (int) likelihood[j];
                 i = j;
             } else if (bigg == (int) likelihood[j]) {
-                //create an arraylist? Choose randomly?
+                //create an arraylist? Choose randomly from the most likely ones?
             }
         }
         if(i == -1) {
