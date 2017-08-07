@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+
+import static java.lang.System.out;
+
 public class ScoreData {
     /**
      * Frequency and Recency
@@ -12,10 +16,15 @@ public class ScoreData {
     private int[] frequency = {0,0,0,0,0,0,0,0,0,0};
     private double[] recency = {1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0};
     private double[] likelihood = {1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0};
+    private ArrayList<Integer> streakList = new ArrayList<Integer>();
     private int currentStreak = 1;
     private int lastInput = 0;
     private int multiplier = 1;
 
+    public ScoreData() {
+        streakList.add(3);
+        streakList.add(5);
+    }
     private void increaseFrequency(int number) {
         frequency[number-1]++;
     }
@@ -27,7 +36,7 @@ public class ScoreData {
     private void updateRecency(int number) {
         for(int i = 0; i < 10; i++) {
             if(i+1 == number) {
-                recency[i] += currentStreak*multiplier;
+                recency[i] += currentStreak*multiplier;     //Wonder: add or set?
             } else {
                 recency[i]--;
                 if(recency[i] < 1) {
@@ -50,7 +59,7 @@ public class ScoreData {
         increaseFrequency(number);
         if(number == lastInput) {
             currentStreak++;
-            if((currentStreak == 2) || (currentStreak == 4)) {
+            if(streakList.contains(currentStreak)) {
                 multiplier = 3;
             } else {
                 multiplier = 2;
@@ -82,9 +91,9 @@ public class ScoreData {
     }
 
     public void viewData() {
-        System.out.printf("#\tfreq\trec\n");
+        out.printf("#\tfreq\trec\n");
         for(int i = 0; i < 10; i++) {
-            System.out.printf("%d\t%d\t%d\n", i+1, frequency[i], (int) recency[i]);
+            out.printf("%d\t%d\t%d\n", i+1, frequency[i], (int) recency[i]);
         }
     }
 }

@@ -9,7 +9,7 @@ public class OEGame {
             h.getInput();
         }
         h.getScoreData().viewData();*/
-        Game g = new Game(h, b);
+        //Game g = new Game(h, b);
 
         //h.getInput();
 
