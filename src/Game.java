@@ -20,7 +20,7 @@ public class Game {
     }
 
     /**
-     * @TODO:
+     * @TODO
      * + The tosser - bat or ball chooser
      * + Inputs from the players and managers of the arrays
      * ? Streaks with special bonus likelihoods for special streaks (like 3 numbers, or frequent user patterns)
@@ -74,18 +74,18 @@ public class Game {
             System.out.printf("Batter: %d\tBaller: %d\n", ballerNum, ballerNum);
             if(ballerNum == batterNum) {
                 out = true;
-                System.out.printf("Out with a score of %d\n", batterScore);
+                System.out.printf("Out, score of %d\n", batterScore);
             } else {
                 batterScore += batterNum;
-                System.out.printf("Score of %d\n", batterScore);
+                System.out.printf("Not out, score of %d\n", batterScore);
             }
         }
-        System.out.printf("\n\n");
+        System.out.printf("\n\nNow %s is balling\n", batter.getName());
         out = false;
         while(!out) {
             ballerNum = baller.getInput();
             batterNum = batter.getInput();
-            System.out.printf("Batter: %d\tBaller: %d\n", ballerNum, ballerNum);
+            System.out.printf("Batter: %d\tBaller: %d\n", ballerNum, batterNum);
             if(ballerNum == batterNum) {
                 out = true;
                 System.out.printf("Out with a score of %d\n", ballerScore);
