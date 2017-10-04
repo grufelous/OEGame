@@ -11,6 +11,7 @@ public interface Player {
     public boolean isBot();
     public int getInput();
     public boolean isBatting = false;
+    public void updateEnemyData(Player e);
     //public int[] getFrequency();
     //public int[] getRecency();
     public int getUnbiasedInput();

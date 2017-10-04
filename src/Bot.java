@@ -2,13 +2,6 @@ import static java.lang.System.out;
 
 public class Bot implements Player {
     public boolean botStatus = true;
-
-    /*private int[] frequency = {0,0,0,0,0,0,0,0,0,0};
-    private int[] recency = {1,1,1,1,1,1,1,1,1,1};
-    private int[] enemyFrequency = {0,0,0,0,0,0,0,0,0,0};
-    private int[] enemyRecency = {1,1,1,1,1,1,1,1,1,1};
-    private int[] enemyLikelihood = {0,0,0,0,0,0,0,0,0,0};
-    private int[] currentStreak = {0,0};        //first element is the number, second is its longest streak*/
     public boolean isBatting = false;
     private int score = 0;
     //private int lastInput = 0;
@@ -59,9 +52,6 @@ public class Bot implements Player {
     }
     public void updateEnemyData(Player e) { //must be called every time before getInput
         this.enemyScore = e.getScoreData();
-        //enemyFrequency = e.getFrequency();
-        //enemyRecency = e.getRecency();
-        //this.enemyScore = e.selfScore;
     }
 
     public ScoreData getScoreData() {

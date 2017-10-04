@@ -71,6 +71,11 @@ public class Game {
         while(!out) {
             batterNum = batter.getInput();
             ballerNum = baller.getInput();
+            if(batter.isBot()) {
+                baller.updateEnemyData(batter);
+            } else {
+                batter.updateEnemyData(baller);
+            }
             System.out.printf("Batter: %d\tBaller: %d\n", ballerNum, ballerNum);
             if(ballerNum == batterNum) {
                 out = true;
@@ -85,6 +90,11 @@ public class Game {
         while(!out) {
             ballerNum = baller.getInput();
             batterNum = batter.getInput();
+            if(batter.isBot()) {
+                baller.updateEnemyData(batter);
+            } else {
+                batter.updateEnemyData(baller);
+            }
             System.out.printf("Batter: %d\tBaller: %d\n", ballerNum, batterNum);
             if(ballerNum == batterNum) {
                 out = true;

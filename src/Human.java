@@ -88,4 +88,7 @@ public class Human implements Player {
     public ScoreData getScoreData() {
         return selfScore;
     }
+    public void updateEnemyData(Player e) {
+        //User doesn't need access to bot's data
+    }
 }
