@@ -3,7 +3,7 @@ import static java.lang.System.out;
 public abstract class Plop {
     /**
      * @JAVADOC
-     * Checks for the first argument in the second, which is an array.
+     * Checks for the first argument in the second argument, which is an array.
      * Not case sensitive
      * @param   toFind The string to look for
      * @param   whereToFind The string array where toFind is looked in

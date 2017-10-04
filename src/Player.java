@@ -1,4 +1,8 @@
 public interface Player {
+    /*@TODO:
+    * Convert to abstract class with Human and Bot extending it
+    * */
+
     public ScoreData selfScore = new ScoreData();
     public ScoreData getScoreData();
     public void makeBatter();

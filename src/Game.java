@@ -94,6 +94,7 @@ public class Game {
                 System.out.printf("Score of %d\n", ballerScore);
             }
         }
+        System.out.printf("\nScores:\n%s:\t%d\n%s:\t%d\n", batter.getName(), batterScore, baller.getName(), ballerScore);
     }
     private void setRoles(Player batter, Player baller) {
         baller.makeBaller();
