@@ -3,6 +3,7 @@ import static java.lang.System.out;
 public class Bot implements Player {
     public boolean botStatus = true;
     public boolean isBatting = false;
+    private static int playCounts = 0;
     private int score = 0;
     //private int lastInput = 0;
 
@@ -22,14 +23,18 @@ public class Bot implements Player {
     public ScoreData selfScore = new ScoreData();
     public ScoreData enemyScore;
 
-
     public Bot() {
         out.printf("Initialized a bot\n");
         this.botStatus = true;
     }
 
     public int getInput() {
-        int input = enemyScore.mostProbable();
+        int input;
+        if(playCounts > 5){
+            input = enemyScore.mostProbable();
+        } else {
+            input = getUnbiasedInput();
+        }
         return input;
     }
     public void updateEnemyData(Player e) { //must be called every time before getInput

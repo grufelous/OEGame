@@ -35,10 +35,10 @@ public class ScoreData {
 
     private void updateRecency(int number) {
         for(int i = 0; i < 10; i++) {
+            recency[i]--;
             if(i+1 == number) {
                 recency[i] += currentStreak*multiplier;     //Wonder: add or set?
             } else {
-                recency[i]--;
                 if(recency[i] < 1) {
                     recency[i] = 1;
                 }
