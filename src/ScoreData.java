@@ -37,7 +37,7 @@ public class ScoreData {
         for(int i = 0; i < 10; i++) {
             recency[i]--;
             if(i+1 == number) {
-                recency[i] += currentStreak*multiplier;     //Wonder: add or set?
+                recency[i] += (sumStreakList() / currentStreak)*multiplier;
             } else {
                 if(recency[i] < 1) {
                     recency[i] = 1;
@@ -53,6 +53,14 @@ public class ScoreData {
     private void updateLikelihood() {
         //at present recency and likelihood are same. This will change as I study more.
         likelihood = recency;
+    }
+
+    private int sumStreakList() {
+        int sumStreak = 0;
+        for(int i : streakList) {
+            sumStreak += i;
+        }
+        return sumStreak;
     }
 
     public void update(int number) {
