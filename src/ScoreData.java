@@ -55,8 +55,8 @@ public class ScoreData {
         likelihood = recency;
     }
 
-    private int sumStreakList() {
-        int sumStreak = 0;
+    private float sumStreakList() {
+        float sumStreak = 0;
         for(int i : streakList) {
             sumStreak += i;
         }

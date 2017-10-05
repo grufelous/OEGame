@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.System.out;
 
@@ -9,6 +10,7 @@ public class Human implements Player {
     private int score = 0;
     public boolean isBatting = false;
     public Human(String name) {
+        System.out.println("Initialized human " + name);
         this.name = name;
     }
     public boolean isBot() {
@@ -31,15 +33,22 @@ public class Human implements Player {
      * */
     public int getInput() {
         out.printf("Input:\t");
-        int input = s.nextInt();
-        if(Plop.rangeCheck(input, 1, 10)) {
-            out.printf("%s's input is %d\n", name, input);
-        } else {
-            out.printf("Try again, %d is not within the range of 1-10, inclusive!\n", input);
-            input = getInput();
+        int input = 0;
+        try{
+            input = s.nextInt();
+            if(Plop.rangeCheck(input, 1, 10)) {
+                out.printf("%s's input is %d\n", name, input);
+            } else {
+                out.printf("Try again, %d is not within the range of 1-10, inclusive!\n", input);
+                input = getInput();
+            }
+            updateUserData(input, isBatting);
+            lastInput = input;
+        } catch (InputMismatchException e) {
+            out.printf("Enter just a number!\n");
+            s.nextLine();
+            getInput();
         }
-        updateUserData(input, isBatting);
-        lastInput = input;
         return input;
     }
 
