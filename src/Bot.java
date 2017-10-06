@@ -57,12 +57,4 @@ public class Bot implements Player {
             score += userInput;
         }
     }
-
-    private void recencyCycle(int rec) {
-        if(rec > 1) {
-            rec--;
-        } else {
-            rec = 1;
-        }
-    }
 }
