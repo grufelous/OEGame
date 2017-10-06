@@ -5,7 +5,12 @@ public class OEGame {
         out.printf("Welcome to OEGame\n\n");
         Bot b = new Bot();
         Human h = new Human("QwertyMan");
+
         h.getInput();
+        h.selfScore.viewData();
+        h.makeBatter();
+        h.getInput();
+        h.selfScore.viewData();
         /*for(int i = 0; i < 20; i++) {
             h.getInput();
         }

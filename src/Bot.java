@@ -1,3 +1,4 @@
+import static java.lang.System.in;
 import static java.lang.System.out;
 
 public class Bot implements Player {
@@ -35,6 +36,8 @@ public class Bot implements Player {
         } else {
             input = getUnbiasedInput();
         }
+        playCounts++;
+        updateUserData(input, this.isBatting);
         return input;
     }
     public void updateEnemyData(Player e) { //must be called every time before getInput
