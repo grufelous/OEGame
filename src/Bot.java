@@ -1,4 +1,3 @@
-import static java.lang.System.in;
 import static java.lang.System.out;
 
 public class Bot implements Player {
@@ -32,7 +31,7 @@ public class Bot implements Player {
     public int getInput() {
         int input;
         if(playCounts > 5){
-            input = enemyScore.mostProbable();
+            input = enemyScore.mostLikely();
         } else {
             input = getUnbiasedInput();
         }

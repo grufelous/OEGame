@@ -45,7 +45,13 @@ public class ScoreData {
             }
         }
     }
-
+    private double averageLikelihood() {
+        double sum = 0;
+        for(double i : likelihood) {
+            sum += i;
+        }
+        return sum / likelihood.length;
+    }
     public double[] getRecency() {
         return recency;
     }
@@ -80,7 +86,8 @@ public class ScoreData {
         updateRecency(number);
     }
 
-    public int mostProbable() {
+    public int mostLikely() {
+        //Is this function working as it should be?
         int i = -1;
         //highest likelihood is the most probable
         int bigg = (int) likelihood[0];
