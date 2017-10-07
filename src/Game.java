@@ -19,13 +19,6 @@ public class Game {
         tosser();
     }
 
-    /**
-     * @TODO
-     * + The tosser - bat or ball chooser
-     * + Inputs from the players and managers of the arrays
-     * ? Streaks with special bonus likelihoods for special streaks (like 3 numbers, or frequent user patterns)
-     * */
-
     private void tosser() {
         boolean repeat = false;
         String[] evenWords = {"e", "even"};
@@ -55,7 +48,7 @@ public class Game {
                 out.printf("Either enter even or odd!\n");
                 tosser();
             }
-            /*if(canChose) {
+            if(canChose) {
                 out.printf("You won the toss. Do you want to bat (1) or ball (2)?");
                 int winnerChoice = s.nextInt();
                 if(winnerChoice == 1) {
@@ -66,7 +59,10 @@ public class Game {
                     play(bot, human);
                 }
 
-            }*/
+            } else {
+                out.printf("You lost the toss.");
+
+            }
         } while (repeat);
     }
 
@@ -112,6 +108,12 @@ public class Game {
         }
         System.out.printf("\nScores:\n%s:\t%d\n%s:\t%d\n", batter.getName(), batterScore, baller.getName(), ballerScore);
     }
+    /**
+     * @JAVADOC
+     * Sets the roles for the two players, in the order (batter, baller)
+     * @param batter The first Player object is set to the batter role
+     * @param baller The second Player object is set to the baller role
+     * */
     private void setRoles(Player batter, Player baller) {
         baller.makeBaller();
         batter.makeBatter();
