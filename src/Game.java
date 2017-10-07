@@ -16,7 +16,7 @@ public class Game {
             human = player1;
             out.printf("Player 1 (%s) is not a bot", player1.getName());
         }
-        //tosser();
+        tosser();
     }
 
     /**
@@ -31,19 +31,25 @@ public class Game {
         String[] evenWords = {"e", "even"};
         String[] oddWords = {"o", "odd"};
         do {
-            out.printf("\tTossing...\nOdd or even? (o/e)");
+            out.printf("\tTossing...\nOdd or even? (o/e) ");
             String tossChoice = s.nextLine();
             int sum = 0;
             boolean canChose = false;
             if(Plop.containsStr(tossChoice, evenWords)) {
                 sum = bot.getUnbiasedInput() + human.getUnbiasedInput();
                 if(sum%2 == 0) {
+                    out.printf("You won the toss! (%d)\n", sum);
                     canChose = true;
+                } else {
+                    out.printf("You lost the toss! (%d)\n", sum);
                 }
             } else if(Plop.containsStr(tossChoice, oddWords)) {
                 sum = bot.getUnbiasedInput() + human.getUnbiasedInput();
                 if(sum%2 != 0) {
+                    out.printf("You won the toss! (%d)\n", sum);
                     canChose = true;
+                } else {
+                    out.printf("You lost the toss! (%d)\n", sum);
                 }
             } else {
                 out.printf("Either enter even or odd!\n");

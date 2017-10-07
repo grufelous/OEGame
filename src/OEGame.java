@@ -5,15 +5,17 @@ public class OEGame {
         out.printf("Welcome to OEGame\n\n");
         Bot b = new Bot();
         Human h = new Human("QwertyMan");
-
-        for(int i = 0; i < 15; i++) {
+        Game g = new Game(h, b);
+        /*for(int i = 0; i < 15; i++) {
             h.getInput();
         }
         h.selfScore.viewData();
         b.updateEnemyData(h);
+
         for(int i = 0; i < 15; i++) {
             out.println(b.getInput());
-        }
+        }*/
+
         //out.println(b.getInput());
 
         /*for(int i = 0; i < 20; i++) {

@@ -69,6 +69,11 @@ public class ScoreData {
         return sumStreak;
     }
 
+    /**
+     * @JAVADOC
+     *  Called to update the player's score data
+     *  @param number The number input by the player
+     **/
     public void update(int number) {
         increaseFrequency(number);
         if(number == lastInput) {
@@ -87,7 +92,6 @@ public class ScoreData {
     }
 
     public int mostLikely() {
-        //Is this function working as it should be?
         int i = -1;
         //highest likelihood is the most probable
         int bigg = (int) likelihood[0];
