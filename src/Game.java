@@ -75,9 +75,9 @@ public class Game {
             ballerNum = baller.getInput();
             out.printf("Inputs: \tBatter: %d; Baller: %d\n", batterNum, ballerNum);
             if(batter.isBot()) {
-                baller.updateEnemyData(batter);
-            } else {
                 batter.updateEnemyData(baller);
+            } else {
+                baller.updateEnemyData(batter);
             }
             System.out.printf("Batter: %d\tBaller: %d\n", batterNum, ballerNum);
             if(ballerNum == batterNum) {

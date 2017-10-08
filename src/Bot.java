@@ -29,13 +29,9 @@ public class Bot implements Player {
     }
 
     public int getInput() {
-        int input = -1;
-        if(playCount > 5){
-            try {
-                input = enemyScore.mostLikely();
-            } catch (NullPointerException n) {
-                out.println("NullPointerException when fetching the most likely\n" + n.getMessage() + "\n" + n.getCause());
-            }
+        int input = -1, threshold = 1;
+        if(playCount > threshold){
+            input = enemyScore.mostLikely();
         } else {
             input = getUnbiasedInput();
         }
