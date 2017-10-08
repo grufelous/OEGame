@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import static java.lang.System.out;
+import static java.lang.System.*;
 
 public class Game {
     Player human, bot;
@@ -67,20 +67,21 @@ public class Game {
     }
 
     public /*private*/void play(Player batter, Player baller) {
-        boolean out = false;
+        boolean playerOut = false;
         int batterScore = 0, ballerScore = 0;
         int batterNum, ballerNum;
-        while(!out) {
+        while(!playerOut) {
             batterNum = batter.getInput();
             ballerNum = baller.getInput();
+            out.printf("Inputs: \tBatter: %d; Baller: %d\n", batterNum, ballerNum);
             if(batter.isBot()) {
                 baller.updateEnemyData(batter);
             } else {
                 batter.updateEnemyData(baller);
             }
-            System.out.printf("Batter: %d\tBaller: %d\n", ballerNum, ballerNum);
+            System.out.printf("Batter: %d\tBaller: %d\n", batterNum, ballerNum);
             if(ballerNum == batterNum) {
-                out = true;
+                playerOut = true;
                 System.out.printf("Out, score of %d\n", batterScore);
             } else {
                 batterScore += batterNum;
@@ -88,10 +89,11 @@ public class Game {
             }
         }
         System.out.printf("\n\nNow %s is balling\n", batter.getName());
-        out = false;
-        while(!out) {
+        playerOut = false;
+        while(!playerOut) {
             ballerNum = baller.getInput();
             batterNum = batter.getInput();
+            out.printf("Inputs: \tBatter: %d; Baller: %d\n", batterNum, ballerNum);
             if(batter.isBot()) {
                 baller.updateEnemyData(batter);
             } else {
@@ -99,7 +101,7 @@ public class Game {
             }
             System.out.printf("Batter: %d\tBaller: %d\n", ballerNum, batterNum);
             if(ballerNum == batterNum) {
-                out = true;
+                playerOut = true;
                 System.out.printf("Out with a score of %d\n", ballerScore);
             } else {
                 ballerScore += ballerNum;
