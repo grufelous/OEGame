@@ -58,10 +58,8 @@ public class Game {
                     setRoles(bot, human);
                     play(bot, human);
                 }
-
             } else {
                 out.printf("You lost the toss.");
-
             }
         } while (repeat);
     }

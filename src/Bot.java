@@ -29,7 +29,7 @@ public class Bot implements Player {
     }
 
     public int getInput() {
-        int input = -1, threshold = 1;
+        int input = -1, threshold = 0/*5*/;
         if(playCount > threshold){
             input = enemyScore.mostLikely();
         } else {
