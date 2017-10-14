@@ -92,7 +92,7 @@ public class Game {
             ballerNum = baller.getInput();
             batterNum = batter.getInput();
             out.printf("Inputs: \tBatter: %d; Baller: %d\n", batterNum, ballerNum);
-            if(batter.isBot()) {
+            if(!batter.isBot()) {
                 baller.updateEnemyData(batter);
             } else {
                 batter.updateEnemyData(baller);

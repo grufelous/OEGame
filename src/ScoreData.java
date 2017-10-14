@@ -98,9 +98,10 @@ public class ScoreData {
         for(int j = 0; j < 10; j++) {
             if(bigg < (int) likelihood[j]) {
                 bigg = (int) likelihood[j];
+                out.printf("Biggest so far is %d", bigg);
                 i = j;
-            } else if (bigg == (int) likelihood[j]) {
-                //create an arraylist? Choose randomly from the most likely ones?
+            } else {
+                out.printf("...duh...");
             }
         }
         if(i == -1) {

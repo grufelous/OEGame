@@ -29,10 +29,12 @@ public class Bot implements Player {
     }
 
     public int getInput() {
-        int input = -1, threshold = 0/*5*/;
-        if(playCount > threshold){
+        int input, threshold = 0/*5*/;
+        if(playCount >= threshold){
+            out.printf("Finding the most likely input\n");
             input = enemyScore.mostLikely();
         } else {
+            out.printf("Finding an unbiased input\n");
             input = getUnbiasedInput();
         }
         playCount++;
@@ -41,8 +43,8 @@ public class Bot implements Player {
     }
     public void updateEnemyData(Player e) { //must be called every time before getInput
         this.enemyScore = e.getScoreData();
-        out.printf("Enemy data: \n");
-        enemyScore.viewData();
+        out.printf("Enemy data updated! \n");
+        //enemyScore.viewData();
     }
 
     public ScoreData getScoreData() {

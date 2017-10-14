@@ -12,9 +12,6 @@ public class OEGame {
         h.selfScore.viewData();
         b.updateEnemyData(h);
 
-        for(int i = 0; i < 15; i++) {
-            out.println(b.getInput());
-        }
         out.printf("Projected input: %d", b.getInput());
         //out.println(b.getInput());
 
