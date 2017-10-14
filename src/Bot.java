@@ -43,8 +43,6 @@ public class Bot implements Player {
     }
     public void updateEnemyData(Player e) { //must be called every time before getInput
         this.enemyScore = e.getScoreData();
-        out.printf("Enemy data updated! \n");
-        //enemyScore.viewData();
     }
 
     public ScoreData getScoreData() {

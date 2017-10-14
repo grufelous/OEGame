@@ -89,18 +89,18 @@ public class ScoreData {
             multiplier = 1;
         }
         updateRecency(number);
+        updateLikelihood();
     }
 
     public int mostLikely() {
+        updateLikelihood();
         int i = -1;
         double bigg = likelihood[0];
+        out.printf("bigg is %f", bigg);
         for(int j = 0; j < 10; j++) {
             if(bigg < likelihood[j]) {
                 bigg = likelihood[j];
-                out.printf("Biggest so far is %f", bigg);
                 i = j;
-            } else {
-                out.printf("...duh...");
             }
         }
         if(i == -1) {
@@ -110,7 +110,8 @@ public class ScoreData {
     }
 
     public void viewData() {
-        out.printf("#\tfreq\trec\n");
+        updateLikelihood();
+        out.printf("#\tfreq\trec\tlik\n");
         for(int i = 0; i < 10; i++) {
             out.printf("%d\t%d\t%d\n", i+1, frequency[i], (int) recency[i]);
         }

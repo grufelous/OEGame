@@ -9,8 +9,9 @@ public class OEGame {
         for(int i = 0; i < 9; i++) {
             h.getInput();
         }
-        h.selfScore.viewData();
+        //h.selfScore.viewData();
         b.updateEnemyData(h);
+        b.enemyScore.viewData();
 
         out.printf("Projected input: %d", b.getInput());
         //out.println(b.getInput());
