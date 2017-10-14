@@ -93,12 +93,11 @@ public class ScoreData {
 
     public int mostLikely() {
         int i = -1;
-        //highest likelihood is the most probable
-        int bigg = (int) likelihood[0];
+        double bigg = likelihood[0];
         for(int j = 0; j < 10; j++) {
-            if(bigg < (int) likelihood[j]) {
-                bigg = (int) likelihood[j];
-                out.printf("Biggest so far is %d", bigg);
+            if(bigg < likelihood[j]) {
+                bigg = likelihood[j];
+                out.printf("Biggest so far is %f", bigg);
                 i = j;
             } else {
                 out.printf("...duh...");
