@@ -60,6 +60,14 @@ public class Game {
                 }
             } else {
                 out.printf("You lost the toss.");
+                int x = (int) Math.random()*2;
+                if(x % 2 == 0) {
+                    setRoles(human, bot);
+                    play(human, bot);
+                } else {
+                    setRoles(bot, human);
+                    play(bot, human);
+                }
             }
         } while (repeat);
     }
@@ -117,5 +125,6 @@ public class Game {
     private void setRoles(Player batter, Player baller) {
         baller.makeBaller();
         batter.makeBatter();
+        out.printf("\n%s is %s\t;%s is %s\n", batter.getName(), batter.getRole(), baller.getName(), baller.getRole());
     }
 }

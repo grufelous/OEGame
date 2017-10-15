@@ -5,13 +5,7 @@ public class OEGame {
         out.printf("Welcome to OEGame\n\n");
         Bot b = new Bot();
         Human h = new Human("QwertyMan");
-        //Game g = new Game(h, b);
-        for(int i = 0; i < 9; i++) {
-            h.getInput();
-        }
-        //h.selfScore.viewData();
-        b.updateEnemyData(h);
-        b.enemyScore.viewData();
+        Game g = new Game(h, b);
 
         out.printf("Projected input: %d", b.getInput());
         //out.println(b.getInput());

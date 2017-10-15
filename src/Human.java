@@ -26,6 +26,13 @@ public class Human implements Player {
     public String getName(){
         return this.name;
     }
+    public String getRole() {
+        if(isBatting) {
+            return "batter";
+        } else {
+            return "baller";
+        }
+    }
     /**
      * @JAVADOC
      * Takes in user inputs and performs necessary checks on it.

@@ -19,6 +19,13 @@ public class Bot implements Player {
     public boolean isBot() {
         return botStatus;
     }
+    public String getRole() {
+        if(isBatting) {
+            return "batter";
+        } else {
+            return "baller";
+        }
+    }
 
     public ScoreData selfScore = new ScoreData();
     public ScoreData enemyScore;

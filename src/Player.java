@@ -8,6 +8,7 @@ public interface Player {
     public void makeBatter();
     public void makeBaller();
     public String getName();
+    public String getRole();
     public boolean isBot();
     public int getInput();
     public boolean isBatting = false;
