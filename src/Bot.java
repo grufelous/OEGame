@@ -1,3 +1,4 @@
+import static java.lang.System.in;
 import static java.lang.System.out;
 
 public class Bot implements Player {
@@ -36,10 +37,16 @@ public class Bot implements Player {
     }
 
     public int getInput() {
-        int input, threshold = 0/*5*/;
+        int input, threshold = 5;
         if(playCount >= threshold){
             out.printf("Finding the most likely input\n");
-            input = enemyScore.mostLikely();
+            try{
+                input = enemyScore.mostLikely();
+                out.printf("The projected input is %d", input);
+            } catch (NullPointerException n) {
+                input = -1;
+                out.printf("NPE\n");
+            }
         } else {
             out.printf("Finding an unbiased input\n");
             input = getUnbiasedInput();

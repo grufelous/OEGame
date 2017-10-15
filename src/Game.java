@@ -31,30 +31,25 @@ public class Game {
             if(Plop.containsStr(tossChoice, evenWords)) {
                 sum = bot.getUnbiasedInput() + human.getUnbiasedInput();
                 if(sum%2 == 0) {
-                    out.printf("You won the toss! (%d)\n", sum);
                     canChose = true;
-                } else {
-                    out.printf("You lost the toss! (%d)\n", sum);
                 }
             } else if(Plop.containsStr(tossChoice, oddWords)) {
                 sum = bot.getUnbiasedInput() + human.getUnbiasedInput();
                 if(sum%2 != 0) {
-                    out.printf("You won the toss! (%d)\n", sum);
                     canChose = true;
-                } else {
-                    out.printf("You lost the toss! (%d)\n", sum);
                 }
             } else {
                 out.printf("Either enter even or odd!\n");
                 tosser();
             }
             if(canChose) {
-                out.printf("You won the toss. Do you want to bat (1) or ball (2)?");
+                out.printf("You won the toss. Do you want to bat (1) or ball (2)? \n");
                 int winnerChoice = s.nextInt();
                 if(winnerChoice == 1) {
                     setRoles(human, bot);
                     play(human, bot);
                 } else if (winnerChoice == 2) {
+                    out.printf("You lost the toss. \n");
                     setRoles(bot, human);
                     play(bot, human);
                 }
@@ -125,6 +120,6 @@ public class Game {
     private void setRoles(Player batter, Player baller) {
         baller.makeBaller();
         batter.makeBatter();
-        out.printf("\n%s is %s\t;%s is %s\n", batter.getName(), batter.getRole(), baller.getName(), baller.getRole());
+        out.printf("\n%s is %s;\t%s is %s\n", batter.getName(), batter.getRole(), baller.getName(), baller.getRole());
     }
 }
