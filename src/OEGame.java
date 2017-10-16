@@ -6,8 +6,6 @@ public class OEGame {
         Bot b = new Bot();
         Human h = new Human("QwertyMan");
         Game g = new Game(h, b);
-
-        out.printf("Projected input: %d", b.getInput());
         //out.println(b.getInput());
 
         /*for(int i = 0; i < 20; i++) {

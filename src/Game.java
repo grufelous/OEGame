@@ -23,6 +23,7 @@ public class Game {
         boolean repeat = false;
         String[] evenWords = {"e", "even"};
         String[] oddWords = {"o", "odd"};
+        String[] affirmations = {"y", "yes", "yep"};
         do {
             out.printf("\tTossing...\nOdd or even? (o/e) ");
             String tossChoice = s.nextLine();
@@ -64,6 +65,11 @@ public class Game {
                     play(bot, human);
                 }
             }
+            out.printf("\nPlay again (Y/N)? ");
+            String rep = s.nextLine();
+            if(Plop.containsStr(rep, affirmations)) {
+                repeat = true;
+            }
         } while (repeat);
     }
 
@@ -71,17 +77,17 @@ public class Game {
         boolean playerOut = false;
         int batterScore = 0, ballerScore = 0;
         int batterNum, ballerNum;
-        while(!playerOut) {
+        while (!playerOut) {
             batterNum = batter.getInput();
             ballerNum = baller.getInput();
             out.printf("Inputs: \tBatter: %d; Baller: %d\n", batterNum, ballerNum);
-            if(batter.isBot()) {
+            if (batter.isBot()) {
                 batter.updateEnemyData(baller);
             } else {
                 baller.updateEnemyData(batter);
             }
             System.out.printf("Batter: %d\tBaller: %d\n", batterNum, ballerNum);
-            if(ballerNum == batterNum) {
+            if (ballerNum == batterNum) {
                 playerOut = true;
                 System.out.printf("Out, score of %d\n", batterScore);
             } else {
@@ -89,19 +95,20 @@ public class Game {
                 System.out.printf("Not out, score of %d\n", batterScore);
             }
         }
-        System.out.printf("\n\nNow %s is balling\n", batter.getName());
+        System.out.printf("\nScores:\n%s:\t%d\n%s:\t%d\n", batter.getName(), batterScore, baller.getName(), ballerScore);
+        out.printf("\n\nNow %s is balling\n", batter.getName());
         playerOut = false;
-        while(!playerOut) {
+        while (!playerOut) {
             ballerNum = baller.getInput();
             batterNum = batter.getInput();
             out.printf("Inputs: \tBatter: %d; Baller: %d\n", batterNum, ballerNum);
-            if(!batter.isBot()) {
+            if (!batter.isBot()) {
                 baller.updateEnemyData(batter);
             } else {
                 batter.updateEnemyData(baller);
             }
             System.out.printf("Batter: %d\tBaller: %d\n", ballerNum, batterNum);
-            if(ballerNum == batterNum) {
+            if (ballerNum == batterNum) {
                 playerOut = true;
                 System.out.printf("Out with a score of %d\n", ballerScore);
             } else {
@@ -110,6 +117,22 @@ public class Game {
             }
         }
         System.out.printf("\nScores:\n%s:\t%d\n%s:\t%d\n", batter.getName(), batterScore, baller.getName(), ballerScore);
+        if (batterScore != ballerScore) {
+            String winnerName = "", loserName = "";
+            int lead = 0;
+            if (batterScore > ballerScore) {
+                winnerName = batter.getName();
+                loserName = baller.getName();
+                lead = batterScore - ballerScore;
+            } else {
+                winnerName = baller.getName();
+                loserName = batter.getName();
+                lead = ballerScore - batterScore;
+            }
+            out.printf("%s won with a lead of %d over %s\n", winnerName, lead, loserName);
+        } else {
+            out.printf("Darn. A tie\n");
+        }
     }
     /**
      * @JAVADOC
