@@ -11,6 +11,7 @@ public interface Player {
     public String getRole();
     public boolean isBot();
     public int getInput();
+    public int getInput(String s);
     public boolean isBatting = false;
     public void updateEnemyData(Player e);
     //public int[] getFrequency();

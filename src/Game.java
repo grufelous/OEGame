@@ -73,7 +73,7 @@ public class Game {
         } while (repeat);
     }
 
-    public /*private*/void play(Player batter, Player baller) {
+    private void play(Player batter, Player baller) {
         boolean playerOut = false;
         int batterScore = 0, ballerScore = 0;
         int batterNum, ballerNum;
@@ -86,13 +86,13 @@ public class Game {
             } else {
                 baller.updateEnemyData(batter);
             }
-            System.out.printf("Batter: %d\tBaller: %d\n", batterNum, ballerNum);
+            out.printf("Batter: %d\tBaller: %d\n", batterNum, ballerNum);
             if (ballerNum == batterNum) {
                 playerOut = true;
-                System.out.printf("Out, score of %d\n", batterScore);
+                out.printf("Out, score of %d\n", batterScore);
             } else {
                 batterScore += batterNum;
-                System.out.printf("Not out, score of %d\n", batterScore);
+                out.printf("Not out, score of %d\n", batterScore);
             }
         }
         System.out.printf("\nScores:\n%s:\t%d\n%s:\t%d\n", batter.getName(), batterScore, baller.getName(), ballerScore);

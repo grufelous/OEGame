@@ -62,7 +62,9 @@ public class Human implements Player {
     public int getUnbiasedInput() {
         return getInput();
     }
-
+    public int getInput(String s) {
+        return getInput();
+    }
     /**
      * @JAVADOC
      * Updates the Player's fields and increments score if they are batting
