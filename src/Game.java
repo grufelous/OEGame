@@ -78,8 +78,8 @@ public class Game {
         int batterScore = 0, ballerScore = 0;
         int batterNum, ballerNum;
         while (!playerOut) {
-            batterNum = batter.getInput();
-            ballerNum = baller.getInput();
+            batterNum = batter.getInput("bat");
+            ballerNum = baller.getInput("ball");
             out.printf("Inputs: \tBatter: %d; Baller: %d\n", batterNum, ballerNum);
             if (batter.isBot()) {
                 batter.updateEnemyData(baller);
@@ -99,8 +99,8 @@ public class Game {
         out.printf("\n\nNow %s is balling\n", batter.getName());
         playerOut = false;
         while (!playerOut) {
-            ballerNum = baller.getInput();
-            batterNum = batter.getInput();
+            ballerNum = baller.getInput("bat");
+            batterNum = batter.getInput("ball");
             out.printf("Inputs: \tBatter: %d; Baller: %d\n", batterNum, ballerNum);
             if (!batter.isBot()) {
                 baller.updateEnemyData(batter);

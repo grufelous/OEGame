@@ -57,13 +57,14 @@ public class Bot implements Player {
     }
     public int getInput(String s) {
         int input, threshold = 5;
-        if((s.equalsIgnoreCase("bat")) && (playCount >= threshold)) {
-
-        } else if((s.equalsIgnoreCase("ball")) && (playCount >= threshold)) {
-
+        if((s.equalsIgnoreCase("bat")) && (playCount >= threshold)) {           //if batting, will output the number with the minimum likelihood
+            input = enemyScore.leastLikely();
+        } else if((s.equalsIgnoreCase("ball")) && (playCount >= threshold)) {   //if balling, will output the number with the maximum likelihood
+            input = enemyScore.mostLikely();
         } else {
             input = getUnbiasedInput();
         }
+        return input;
     }
     public void updateEnemyData(Player e) { //must be called every time before getInput
         this.enemyScore = e.getScoreData();

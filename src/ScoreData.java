@@ -95,11 +95,25 @@ public class ScoreData {
     public int mostLikely() {
         updateLikelihood();
         int i = -1;
-        double bigg = likelihood[0];
-        out.printf("bigg is %f", bigg);
+        double max = likelihood[0];
         for(int j = 0; j < 10; j++) {
-            if(bigg < likelihood[j]) {
-                bigg = likelihood[j];
+            if(max < likelihood[j]) {
+                max = likelihood[j];
+                i = j;
+            }
+        }
+        if(i == -1) {
+            i = (int) (Math.random() * 9);
+        }
+        return i+1;
+    }
+    public int leastLikely() {
+        updateLikelihood();
+        int i = -1;
+        double min = likelihood[0];
+        for(int j = 0; j < 10; j++) {
+            if(min > likelihood[j]) {
+                min = likelihood[j];
                 i = j;
             }
         }
