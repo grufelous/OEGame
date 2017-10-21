@@ -16,6 +16,6 @@ public interface Player {
     public void updateEnemyData(Player e);
     //public int[] getFrequency();
     //public int[] getRecency();
-    public int getUnbiasedInput();
+    //public int getUnbiasedInput();
 
 }

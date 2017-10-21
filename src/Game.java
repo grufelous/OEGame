@@ -30,12 +30,12 @@ public class Game {
             int sum = 0;
             boolean canChose = false;
             if(Plop.containsStr(tossChoice, evenWords)) {
-                sum = bot.getUnbiasedInput() + human.getUnbiasedInput();
+                sum = bot.getInput() + human.getInput();
                 if(sum%2 == 0) {
                     canChose = true;
                 }
             } else if(Plop.containsStr(tossChoice, oddWords)) {
-                sum = bot.getUnbiasedInput() + human.getUnbiasedInput();
+                sum = bot.getInput() + human.getInput();
                 if(sum%2 != 0) {
                     canChose = true;
                 }
@@ -66,6 +66,7 @@ public class Game {
                 }
             }
             out.printf("\nPlay again (Y/N)? ");
+            s.next();
             String rep = s.nextLine();
             if(Plop.containsStr(rep, affirmations)) {
                 repeat = true;

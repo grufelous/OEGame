@@ -37,23 +37,7 @@ public class Bot implements Player {
     }
 
     public int getInput() {
-        int input, threshold = 5;
-        if(playCount >= threshold){
-            out.printf("Finding the most likely input\n");
-            try{
-                input = enemyScore.mostLikely();
-                out.printf("The projected input is %d", input);
-            } catch (NullPointerException n) {
-                input = -1;
-                out.printf("NPE\n");
-            }
-        } else {
-            out.printf("Finding an unbiased input\n");
-            input = getUnbiasedInput();
-        }
-        playCount++;
-        updateUserData(input, this.isBatting);
-        return input;
+        return (int) (1 + Math.random()*10);
     }
     public int getInput(String s) {
         int input, threshold = 5;
@@ -62,8 +46,11 @@ public class Bot implements Player {
         } else if((s.equalsIgnoreCase("ball")) && (playCount >= threshold)) {   //if balling, will output the number with the maximum likelihood
             input = enemyScore.mostLikely();
         } else {
-            input = getUnbiasedInput();
+            input = getInput();
         }
+        out.printf("The projected input is %d for %s role", input, s);
+        playCount++;
+        updateUserData(input, this.isBatting);
         return input;
     }
     public void updateEnemyData(Player e) { //must be called every time before getInput
@@ -72,10 +59,6 @@ public class Bot implements Player {
 
     public ScoreData getScoreData() {
         return selfScore;
-    }
-
-    public int getUnbiasedInput() {
-        return (int) (1 + Math.random()*10);
     }
 
     private void updateUserData(int userInput, boolean isBatting) {

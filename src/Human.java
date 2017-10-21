@@ -59,9 +59,6 @@ public class Human implements Player {
         return input;
     }
 
-    public int getUnbiasedInput() {
-        return getInput();
-    }
     public int getInput(String s) {
         return getInput();
     }
