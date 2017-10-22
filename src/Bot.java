@@ -1,4 +1,3 @@
-import static java.lang.System.in;
 import static java.lang.System.out;
 
 public class Bot implements Player {
@@ -40,16 +39,23 @@ public class Bot implements Player {
         return (int) (1 + Math.random()*10);
     }
     public int getInput(String s) {
-        int input, threshold = 5;
+        int input, threshold = 5, calc = 1;
         if((s.equalsIgnoreCase("bat")) && (playCount >= threshold)) {           //if batting, will output the number with the minimum likelihood
             input = enemyScore.leastLikely();
         } else if((s.equalsIgnoreCase("ball")) && (playCount >= threshold)) {   //if balling, will output the number with the maximum likelihood
             input = enemyScore.mostLikely();
         } else {
+            calc = 0;
             input = getInput();
         }
-        out.printf("The projected input is %d for %s role", input, s);
+        out.printf("The projected input is %d for %s role; guessed? %d; Enemy data: /n", input, s, calc);
         playCount++;
+        try{
+            enemyScore.viewData();
+        } catch (NullPointerException e) {
+            out.printf("No data yet\n");
+        }
+
         updateUserData(input, this.isBatting);
         return input;
     }
