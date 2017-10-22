@@ -48,7 +48,7 @@ public class Bot implements Player {
             calc = 0;
             input = getInput();
         }
-        out.printf("The projected input is %d for %s role; guessed? %d; Enemy data: /n", input, s, calc);
+        out.printf("The projected input is %d for %s role; guessed? %d; Enemy data: \n", input, s, calc);
         playCount++;
         try{
             enemyScore.viewData();
